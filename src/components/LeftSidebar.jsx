@@ -1,9 +1,16 @@
 import { useState, useEffect } from 'react'
 import BigHero6Banner from './BigHero6Banner'
 
+<<<<<<< HEAD
 const TARGET = new Date('2024-11-07T00:00:00').getTime()
 function pad(n) { return String(Math.max(0, n)).padStart(2, '0') }
 
+=======
+function pad(n) { return String(Math.max(0, n)).padStart(2, '0') }
+
+const TARGET = new Date('2024-11-07T00:00:00').getTime()
+
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
 function useCountdown() {
   const [t, setT] = useState({ days: 0, hours: 0, min: 0, sec: 0 })
   useEffect(() => {
@@ -13,8 +20,13 @@ function useCountdown() {
       setT({
         days:  Math.floor(diff / 86400000),
         hours: Math.floor((diff % 86400000) / 3600000),
+<<<<<<< HEAD
         min:   Math.floor((diff % 3600000)  / 60000),
         sec:   Math.floor((diff % 60000)    / 1000),
+=======
+        min:   Math.floor((diff % 3600000) / 60000),
+        sec:   Math.floor((diff % 60000) / 1000),
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
       })
     }
     tick()
@@ -24,6 +36,7 @@ function useCountdown() {
   return t
 }
 
+<<<<<<< HEAD
 function SectionTitle({ children, id }) {
   return (
     <div className="flex items-center gap-2 mb-2">
@@ -48,10 +61,15 @@ export default function LeftSidebar({ slide = 0, setSlide = () => {}, onTrailer 
     setAudioOn(next)
     onAudioChange?.(next)
   }
+=======
+export default function LeftSidebar({ slide, setSlide, onTrailer }) {
+  const { days, hours, min, sec } = useCountdown()
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
 
   return (
     <aside
       id="left-sidebar"
+<<<<<<< HEAD
       aria-label="Site navigation"
       className="no-scrollbar flex flex-col flex-shrink-0 z-20 overflow-y-auto overflow-x-hidden [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden select-none"
       style={{ width: 200, background: 'transparent' }}
@@ -149,10 +167,91 @@ export default function LeftSidebar({ slide = 0, setSlide = () => {}, onTrailer 
             <div className="relative w-10 h-10 flex-shrink-0 border border-white/25 bg-gradient-to-tr from-black/80 via-slate-800/60 to-slate-700/40 overflow-hidden flex items-center justify-center">
               <div className="w-6 h-6 rounded-full border border-white/80 flex items-center justify-center bg-black/30 group-hover:scale-110 transition-transform duration-200">
                 <svg viewBox="0 0 24 24" width="11" height="11" fill="white" className="ml-0.5" aria-hidden="true">
+=======
+      className="flex flex-col flex-shrink-0 bg-slate-900/30 backdrop-blur-md border-r border-white/10 overflow-y-auto overflow-x-hidden z-20"
+      style={{ width: 200 }}
+    >
+      {/* ── SOLID RED DISNEY BIG HERO 6 BADGE ─────────────── */}
+      <BigHero6Banner />
+
+      {/* ── LOWER CONTROLS BLOCK ─────────────────────────── */}
+      <div className="flex flex-col flex-1 justify-between px-3.5 py-4 gap-4">
+
+        {/* GET TICKETS & COUNTDOWN */}
+        <div className="flex flex-col gap-2.5">
+          <div className="flex items-center gap-2">
+            <h3 className="text-white/80 text-[9.5px] font-cond font-bold tracking-[0.22em] uppercase whitespace-nowrap">
+              Get Tickets
+            </h3>
+            <div className="flex-1 h-[1px] bg-white/15" />
+          </div>
+
+          {/* Zip input */}
+          <div className="flex items-center border border-white/30 bg-black/20 h-8 rounded-[2px] overflow-hidden focus-within:border-white/60 transition-colors">
+            <input
+              id="zip-input"
+              type="text"
+              placeholder="ENTER YOUR ZIP CODE"
+              maxLength={10}
+              aria-label="Enter zip code"
+              className="flex-1 bg-transparent text-white placeholder-white/40 text-[9px] font-cond tracking-widest uppercase px-2 outline-none min-w-0"
+            />
+            <button
+              id="zip-submit"
+              aria-label="Find tickets"
+              className="flex-shrink-0 w-8 h-8 flex items-center justify-center text-white/70 hover:text-white hover:bg-white/15 transition-all bg-white/5 border-l border-white/20"
+            >
+              <svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor">
+                <path d="M12 4l-1.41 1.41L16.17 11H4v2h12.17l-5.58 5.59L12 20l8-8z"/>
+              </svg>
+            </button>
+          </div>
+
+          {/* Countdown Boxes */}
+          <div id="countdown" className="grid grid-cols-4 gap-1 mt-1">
+            {[
+              { label: 'DAYS',  val: pad(days)  },
+              { label: 'HOURS', val: pad(hours) },
+              { label: 'MIN',   val: pad(min)   },
+              { label: 'SEC',   val: pad(sec)   },
+            ].map(({ label, val }) => (
+              <div
+                key={label}
+                className="flex flex-col items-center bg-black/25 border border-white/15 py-1 rounded-[2px]"
+              >
+                <span className="text-white/50 text-[7px] font-cond tracking-wider uppercase font-semibold">
+                  {label}
+                </span>
+                <span
+                  id={`cd-${label.toLowerCase()}`}
+                  className="text-white font-oswald font-bold text-[15px] leading-tight tabular-nums"
+                >
+                  {val}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* WATCH THE TRAILER BUTTON */}
+        <button
+          id="trailer-btn"
+          onClick={onTrailer}
+          aria-label="Watch the trailer"
+          className="flex items-center gap-2 bg-black/30 border border-white/20 hover:border-white/50 hover:bg-black/50 transition-all duration-200 group p-1.5 rounded-[2px]"
+        >
+          {/* thumbnail box */}
+          <div className="w-11 h-11 flex-shrink-0 border border-white/30 flex items-center justify-center bg-black/40 group-hover:border-white/60 relative overflow-hidden rounded-[2px]">
+            {/* Hiro thumbnail backdrop or play symbol */}
+            <div className="absolute inset-0 bg-gradient-to-tr from-black/80 to-transparent flex items-center justify-center">
+              <div className="w-6 h-6 rounded-full border border-white/70 flex items-center justify-center bg-black/30 group-hover:scale-110 transition-transform">
+                <svg viewBox="0 0 24 24" width="12" height="12" fill="white" className="ml-0.5">
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
                   <path d="M8 5v14l11-7z"/>
                 </svg>
               </div>
             </div>
+<<<<<<< HEAD
             <span className="font-cond font-bold text-[9.5px] tracking-[0.18em] uppercase text-white leading-tight text-left pr-1">
               Watch the Trailer
             </span>
@@ -219,3 +318,31 @@ export default function LeftSidebar({ slide = 0, setSlide = () => {}, onTrailer 
     </aside>
   )
 }
+=======
+          </div>
+          <span className="text-white font-cond font-bold text-[10px] tracking-[0.16em] uppercase group-hover:text-white transition-colors text-left leading-tight">
+            Watch the Trailer
+          </span>
+        </button>
+
+        {/* Slide indicator dots */}
+        <div className="flex items-center gap-1.5 self-center pt-1">
+          {[0, 1, 2, 3].map(i => (
+            <button
+              key={i}
+              id={`dot-${i}`}
+              onClick={() => setSlide(i)}
+              aria-label={`Slide ${i + 1}`}
+              className={`transition-all duration-200 ${
+                slide === i
+                  ? 'w-4 h-2 rounded-full bg-white shadow-sm'
+                  : 'w-2 h-2 rounded-full border border-white/40 bg-transparent hover:border-white/80'
+              }`}
+            />
+          ))}
+        </div>
+      </div>
+    </aside>
+  )
+}
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf

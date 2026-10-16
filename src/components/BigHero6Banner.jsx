@@ -2,7 +2,11 @@ export default function BigHero6Banner() {
   return (
     <div
       id="disney-bh6-banner"
+<<<<<<< HEAD
       className="w-full bg-[#d62027] flex flex-col items-center px-4 pt-3.5 pb-3 select-none border-b border-black/20 shadow-lg flex-shrink-0"
+=======
+      className="w-full bg-[#d62027] flex flex-col items-center px-4 pt-4 pb-4 select-none border-b border-black/20 shadow-lg"
+>>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
       style={{
         background: 'linear-gradient(180deg, #df2229 0%, #d62027 60%, #c51c22 100%)',
       }}
