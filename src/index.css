@@ -10,7 +10,6 @@ html, body, #root {
   overflow: hidden;
 }
 
-<<<<<<< HEAD
 /* Hide scrollbar utility & Left Sidebar scrollbar removal */
 .no-scrollbar::-webkit-scrollbar,
 #left-sidebar::-webkit-scrollbar {
@@ -25,8 +24,6 @@ html, body, #root {
   scrollbar-width: none;     /* Firefox and Chrome/Edge */
 }
 
-=======
->>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
 /* Ticker scroll animation */
 @keyframes ticker {
   0%   { transform: translateX(0); }

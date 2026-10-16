@@ -57,11 +57,7 @@ export function CharIcon({ id }) {
   }
 }
 
-<<<<<<< HEAD
 export default function BottomBar({ audioOn, toggle, chars, activeChar, setActiveChar, onOpenCharComms }) {
-=======
-export default function BottomBar({ audioOn, toggle, chars, activeChar, setActiveChar }) {
->>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
   return (
     <footer className="flex items-center justify-between flex-shrink-0 h-10 px-5 border-t border-white/10 bg-black/25 backdrop-blur-sm z-20">
 
@@ -93,18 +89,12 @@ export default function BottomBar({ audioOn, toggle, chars, activeChar, setActiv
             <button
               key={c.id}
               id={`char-${i}`}
-<<<<<<< HEAD
               onClick={() => {
                 setActiveChar(i)
                 onOpenCharComms?.(c.id)
               }}
               aria-label={c.label}
               title={`Open ${c.label} Comms Transmission`}
-=======
-              onClick={() => setActiveChar(i)}
-              aria-label={c.label}
-              title={c.label}
->>>>>>> 016e6b0778300797ef6fa6f1c0cd0a6f8839f4cf
               className={`flex items-center justify-center p-1 rounded-full transition-all duration-200 ${
                 activeChar === i
                   ? 'text-white scale-110 bg-white/20 shadow-sm'
