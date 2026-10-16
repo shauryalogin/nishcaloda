@@ -7,27 +7,19 @@ export default function BigHero6Banner() {
         background: 'linear-gradient(180deg, #df2229 0%, #d62027 60%, #c51c22 100%)',
       }}
     >
-      {/* ── DISNEY SCRIPT WORDMARK ───────────────────────── */}
-      <div className="w-20 mb-2 flex justify-center">
-        <svg
-          viewBox="0 0 100 36"
-          className="w-full h-auto text-white fill-current drop-shadow-sm"
-        >
-          {/* Stylized Disney cursive script */}
-          <text
-            x="50%"
-            y="26"
-            textAnchor="middle"
-            fontFamily="'Brush Script MT', 'Dancing Script', 'Snell Roundhand', cursive"
-            fontSize="28"
-            fontWeight="bold"
-            fontStyle="italic"
-            letterSpacing="0.5"
-            fill="white"
-          >
-            Disney
-          </text>
-        </svg>
+      {/* ── DISNEY WORDMARK (FROM PUBLIC FOLDER) ───────── */}
+      <div className="w-20 mb-1 flex justify-center translate-x-3.5">
+        <img
+          src="/disney.png"
+          onError={(e) => {
+            if (!e.target.dataset.tried) {
+              e.target.dataset.tried = 'true';
+              e.target.src = '/disneyremovebg.png';
+            }
+          }}
+          alt="Disney"
+          className="w-full h-auto object-contain brightness-0 invert drop-shadow-sm"
+        />
       </div>
 
       {/* ── BIG HERO 6 LOGO GRAPHIC ────────────────────── */}
