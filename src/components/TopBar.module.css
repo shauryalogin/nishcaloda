@@ -1,0 +1,97 @@
+.topBar {
+  display: flex;
+  align-items: center;
+  height: var(--topbar-h);
+  border-bottom: 1px solid rgba(255,255,255,0.1);
+  padding: 0 12px 0 8px;
+  background: rgba(0,0,0,0.18);
+  backdrop-filter: blur(4px);
+  gap: 10px;
+  flex-shrink: 0;
+  z-index: 10;
+}
+
+/* ── TICKER ─────────────────────────── */
+.tickerWrap {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  overflow: hidden;
+  gap: 8px;
+  min-width: 0;
+}
+
+.twitterIcon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+
+.tickerMask {
+  flex: 1;
+  overflow: hidden;
+  position: relative;
+}
+
+.tickerMask::before,
+.tickerMask::after {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 30px;
+  z-index: 2;
+  pointer-events: none;
+}
+.tickerMask::before { left: 0; background: linear-gradient(to right, rgba(30,40,48,0.5), transparent); }
+.tickerMask::after  { right: 0; background: linear-gradient(to left, rgba(30,40,48,0.3), transparent); }
+
+.tickerScroll {
+  display: flex;
+  white-space: nowrap;
+  animation: ticker 34s linear infinite;
+}
+
+.tickerScroll span {
+  font-family: var(--font-cond);
+  font-size: 10.5px;
+  font-weight: 400;
+  letter-spacing: 0.08em;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  padding-right: 0;
+}
+
+/* ── SOCIAL BAR ──────────────────────── */
+.socialBar {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.socialLabel {
+  font-family: var(--font-cond);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: rgba(255,255,255,0.45);
+  margin-right: 4px;
+  text-transform: uppercase;
+}
+
+.socialBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  text-decoration: none;
+  transition: opacity 0.2s, transform 0.15s;
+  opacity: 0.9;
+}
+
+.socialBtn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
